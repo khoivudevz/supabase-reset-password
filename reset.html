@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reset password</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="card">
+    <section id="loading-state">
+      <h1>Reset password</h1>
+      <p class="subtitle">Checking your reset link...</p>
+    </section>
+
+    <section id="reset-state" class="hidden">
+      <h1>Reset password</h1>
+      <p class="subtitle">Choose a new password for your account.</p>
+
+      <form id="reset-form">
+        <label for="password">New password</label>
+        <input id="password" type="password" autocomplete="new-password" minlength="8" required />
+
+        <label for="confirm-password">Confirm new password</label>
+        <input id="confirm-password" type="password" autocomplete="new-password" minlength="8" required />
+
+        <button id="reset-button" type="submit">Update password</button>
+      </form>
+    </section>
+
+    <section id="invalid-state" class="hidden">
+      <h1>Invalid or expired link</h1>
+      <p class="subtitle">This password reset link is invalid or has expired.</p>
+      <a class="button-link" href="index.html">Request a new link</a>
+    </section>
+
+    <section id="success-state" class="hidden">
+      <h1>Password updated</h1>
+      <p class="subtitle">Your password has been changed successfully.</p>
+      <a class="button-link" href="index.html">Done</a>
+    </section>
+
+    <div id="message" class="message" role="status"></div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="reset-password.js"></script>
+</body>
+</html>

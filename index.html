@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forgot password</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="card">
+    <h1>Forgot password?</h1>
+    <p class="subtitle">Enter your email and we will send you a password reset link.</p>
+
+    <form id="request-form">
+      <label for="email">Email</label>
+      <input id="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+      <button id="submit-button" type="submit">Send reset link</button>
+    </form>
+
+    <div id="message" class="message" role="status"></div>
+    <p class="small">For local testing, run this folder through a local web server instead of opening the HTML file directly.</p>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="request-reset.js"></script>
+</body>
+</html>
