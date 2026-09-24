@@ -13,15 +13,20 @@ function showMessage(text, type = 'info') {
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
+
   submitButton.disabled = true;
   showMessage('Sending reset link...', 'info');
 
-  // Keeps the same folder when the project is hosted in a subdirectory.
-  const redirectTo = new URL('reset.html', window.location.href).href;
+  const redirectTo =
+    'https://khoivudevz.github.io/supabase-reset-password/reset.html';
 
-  const { error } = await supabaseClient.auth.resetPasswordForEmail(emailInput.value.trim(), {
-    redirectTo
-  });
+  const { error } =
+    await supabaseClient.auth.resetPasswordForEmail(
+      emailInput.value.trim(),
+      {
+        redirectTo
+      }
+    );
 
   submitButton.disabled = false;
 
@@ -30,6 +35,8 @@ form.addEventListener('submit', async (event) => {
     return;
   }
 
-  // Avoid revealing whether an email exists in the database.
-  showMessage('If that email is registered, a password reset link has been sent.', 'success');
+  showMessage(
+    'If that email is registered, a password reset link has been sent.',
+    'success'
+  );
 });
